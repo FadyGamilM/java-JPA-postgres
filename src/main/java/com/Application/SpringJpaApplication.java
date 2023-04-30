@@ -25,6 +25,20 @@ public class SpringJpaApplication {
 							System.out::println,
 							()-> System.out.println("no sutdent with this email"));
 			studentRepo.findByFirstNameAndLastName("fady", "gamil").ifPresentOrElse(System.out::println, () -> System.out.println("no student has been found with this first and last name combinations !"));
+			studentRepo.GetByEmail("fady@gmail.com").ifPresentOrElse(
+					System.out::println,
+					() -> System.out.println("not found with given email")
+			);
+
+			studentRepo.GetByFirstAndLastName("fady", "gamil").ifPresentOrElse(
+					System.out::println,
+					() -> System.out.println("not found with given first and last name")
+			);
+
+			studentRepo.GetByEmailNative("fady@gmail.com").ifPresentOrElse(
+					System.out::println,
+					() -> System.out.println("not found with given email address")
+			);
 		};
 	}
 
