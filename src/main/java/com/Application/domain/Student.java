@@ -1,4 +1,4 @@
-package com.Application;
+package com.Application.domain;
 
 import jakarta.persistence.*;
 
@@ -37,12 +37,11 @@ public class Student {
 
     // constructor
     public Student(){}
-    public Student(Long id, String firstName, String lastName, String email, Integer age){
+    public Student(String firstName, String lastName, String email, Integer age){
         this.age = age;
         this.email = email;
         this.firstName = firstName;
-        this.lastname = lastname;
-        this.id = id;
+        this.lastname = lastName;
     }
 
     public Integer getAge() {
