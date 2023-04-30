@@ -26,7 +26,7 @@ public class Student {
     private String firstName;
 
     @Column(name="last_name", nullable = false, columnDefinition ="TEXT")
-    private String lastname;
+    private String lastName;
 
     @Column(name="age", nullable = false)
     private Integer age;
@@ -41,7 +41,7 @@ public class Student {
         this.age = age;
         this.email = email;
         this.firstName = firstName;
-        this.lastname = lastName;
+        this.lastName = lastName;
     }
 
     public Integer getAge() {
@@ -61,7 +61,7 @@ public class Student {
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setAge(Integer age) {
@@ -81,7 +81,7 @@ public class Student {
     }
 
     public void setLastname(String lastname) {
-        lastname = lastname;
+        lastName = lastname;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", lastname='" + lastName + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
                 '}';
@@ -100,12 +100,12 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(id, student.id) && Objects.equals(firstName, student.firstName) && Objects.equals(lastname, student.lastname) && Objects.equals(age, student.age) && Objects.equals(email, student.email);
+        return Objects.equals(id, student.id) && Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(age, student.age) && Objects.equals(email, student.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastname, age, email);
+        return Objects.hash(id, firstName, lastName, age, email);
     }
 
 }

@@ -15,12 +15,17 @@ public class SpringJpaApplication {
 	}
 
 	// to run some code after the application starts
-/*	@Bean
+	@Bean
 	CommandLineRunner commandLineRunner (StudentRepo studentRepo){
 		return args -> {
-			var fady = new Student("fady", "gamil", "fady@gmail.com", 24);
-			studentRepo.save(fady);
+//			var fady = new Student("fady", "gamil", "fady@gmail.com", 24);
+//			studentRepo.save(fady);
+			studentRepo.findByEmail("fady@gmail.com")
+					.ifPresentOrElse(
+							System.out::println,
+							()-> System.out.println("no sutdent with this email"));
+			studentRepo.findByFirstNameAndLastName("fady", "gamil").ifPresentOrElse(System.out::println, () -> System.out.println("no student has been found with this first and last name combinations !"));
 		};
-	}*/
+	}
 
 }
