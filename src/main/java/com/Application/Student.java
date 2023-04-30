@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity(name="Student")
+@Table(name="student", uniqueConstraints ={@UniqueConstraint(name ="student_email_is_unique", columnNames ="email" )})
 public class Student {
     //➜ props of the java class
     @Id
@@ -21,13 +22,21 @@ public class Student {
 
     )
     private Long id;
+    @Column(name="first_name", nullable = false, columnDefinition ="TEXT")
     private String firstName;
+
+    @Column(name="last_name", nullable = false, columnDefinition ="TEXT")
     private String lastname;
+
+    @Column(name="age", nullable = false)
     private Integer age;
+
+    @Column(name="email", nullable = false, columnDefinition ="TEXT")
     private String email;
 
 
     // constructor
+    public Student(){}
     public Student(Long id, String firstName, String lastName, String email, Integer age){
         this.age = age;
         this.email = email;
