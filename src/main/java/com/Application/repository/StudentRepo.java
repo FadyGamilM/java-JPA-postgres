@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
 import java.util.Optional;
 
 // <TYPE_OF_ENTITY, TYPE_OF_ENTITY_PK>
@@ -44,4 +45,8 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
     // receive integer 0 or 1 indicating that the process is succeed or failed
     @Query(value = "DELETE FROM Student WHERE id = ?1", nativeQuery = true)
     int DeleteStudentByStudentId(Long studentId);
+
+    // TODO => sorting metohd
+    @Query(value="SELECT S.first_name FROM Student AS S ORDER BY S.first_name", nativeQuery = true)
+    List<String> SortByFirstName();
 }
