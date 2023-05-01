@@ -18,8 +18,17 @@ public class SpringJpaApplication {
 	@Bean
 	CommandLineRunner commandLineRunner (StudentRepo studentRepo){
 		return args -> {
-//			var fady = new Student("fady", "gamil", "fady@gmail.com", 24);
-//			studentRepo.save(fady);
+/*			var magy = new Student("magy", "magdy", "magy@gmail.com", 24);
+			studentRepo.save(magy);
+			var fady = new Student("fady", "gamil", "fady@gmail.com", 25);
+			studentRepo.save(fady);
+			var ahmed = new Student("marwan", "mohammed", "marwan@gmail.com", 26);
+			studentRepo.save(ahmed);
+			var sa3ed = new Student("said", "mostafa", "said@gmail.com", 24);
+			studentRepo.save(sa3ed);*/
+/*
+			var magy = new Student("magy", "magdy", "magy@gmail.com", 24);
+			studentRepo.save(magy);
 			studentRepo.findByEmail("fady@gmail.com")
 					.ifPresentOrElse(
 							System.out::println,
@@ -39,6 +48,13 @@ public class SpringJpaApplication {
 					System.out::println,
 					() -> System.out.println("not found with given email address")
 			);
+			System.out.println(studentRepo.DeleteStudentByStudentId(2L));
+
+
+*/
+
+
+
 		};
 	}
 

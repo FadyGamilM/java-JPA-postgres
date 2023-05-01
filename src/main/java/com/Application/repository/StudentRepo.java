@@ -1,7 +1,9 @@
 package com.Application.repository;
 
 import com.Application.domain.Student;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
@@ -28,4 +30,18 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
     // now natively not via the jqpl
     @Query(value = "SELECT * FROM Student AS S WHERE S.email = ?1", nativeQuery = true)
     Optional<Student> GetByEmailNative (String email);
+
+    // the @Query notation is used for queries which returns something from our database
+    /*
+    but for queries such as DELETE UPDATE INSERT, we need to notify our JPA repo that we
+    won't receive something from the database to map it to our classes, so we will use
+    two notations :
+    1 -> @Modifying
+    2 -> @Transactional
+    */
+    @Transactional
+    @Modifying
+    // receive integer 0 or 1 indicating that the process is succeed or failed
+    @Query(value = "DELETE FROM Student WHERE id = ?1", nativeQuery = true)
+    int DeleteStudentByStudentId(Long studentId);
 }
